@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "layers": {
+    "block_groups": {
+      "source": "mapbox://tileset-source/andrewsepic1/us-census-block-groups-2023",
+      "minzoom": 3,
+      "maxzoom": 12,
+      "features": {
+        "id": ["to-number", ["get", "GEOID"]],
+        "simplification": ["case", ["<", ["zoom"], 6], 10, ["<", ["zoom"], 8], 4, 1]
+      },
+      "tiles": { "layer_size": 2500 }
+    }
+  }
+}
