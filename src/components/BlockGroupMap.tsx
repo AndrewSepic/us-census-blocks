@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import mapboxgl from 'mapbox-gl'
+import * as mapboxgl from 'mapbox-gl/esm'
 import type { ExpressionSpecification, FeatureSelector } from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import {
@@ -50,9 +50,9 @@ export default function BlockGroupMap({ metric, onHover }: BlockGroupMapProps) {
 
   useEffect(() => {
     if (!containerRef.current) return
-    mapboxgl.accessToken = MAPBOX_TOKEN
 
     const map = new mapboxgl.Map({
+      accessToken: MAPBOX_TOKEN,
       container: containerRef.current,
       style: 'mapbox://styles/mapbox/light-v11',
       center: [-98.5, 39.5],
